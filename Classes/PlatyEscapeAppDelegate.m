@@ -39,7 +39,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+     Use this method to release sharedfile://localhost/Users/joepr25/Developer/PlatyEscape/LevelSelector.xib resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
      */
 }
@@ -64,6 +64,29 @@
      Called when the application is about to terminate.
      See also applicationDidEnterBackground:.
      */
+}
+
+-(void) gotoGame:(MenuPrincipal *)requester {
+
+	[requester.view removeFromSuperview];
+	requester = nil;
+	[requester release];
+	LevelSelector *lvc = [[LevelSelector alloc] init];
+	lvc.delegate = self;
+	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
+	[self.window addSubview:lvc.view];
+	
+}
+
+-(void) goToHome:(LevelSelector *)requester {
+
+	[requester.view removeFromSuperview];
+	requester = nil;
+	[requester release];
+	MenuPrincipal *lvc = [[MenuPrincipal alloc] init];
+	lvc.delegate = self;
+	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
+	[self.window addSubview:lvc.view];
 }
 
 

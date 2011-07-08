@@ -107,6 +107,15 @@
 	
 }
 
+-(void) releaseOutlets {
+	self.fondo = nil;
+	self.startGame = nil;
+	self.gameCenter = nil;
+	self.shop = nil;
+	self.instructions = nil;
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -116,6 +125,8 @@
 }
 
 - (void)viewDidUnload {
+	
+	[self releaseOutlets];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -123,6 +134,7 @@
 
 
 - (void)dealloc {
+	[self releaseOutlets];
     [super dealloc];
 }
 
