@@ -19,7 +19,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.
-    
+	MenuPrincipal *vc = [[MenuPrincipal alloc] init];
+    vc.view.frame = [[UIScreen mainScreen] applicationFrame];
+	vc.delegate = self;
+	[self.window addSubview:vc.view];
     [self.window makeKeyAndVisible];
     
     return YES;

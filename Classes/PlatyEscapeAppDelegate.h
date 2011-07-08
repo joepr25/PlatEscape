@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuPrincipal.h"
 
-@interface PlatyEscapeAppDelegate : NSObject <UIApplicationDelegate> {
+@interface PlatyEscapeAppDelegate : NSObject <UIApplicationDelegate, MenuPrincipalDelegate> {
     UIWindow *window;
 }
 
