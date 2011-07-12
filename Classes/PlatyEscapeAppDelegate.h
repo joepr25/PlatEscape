@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "MenuPrincipal.h"
 #import "LevelSelector.h"
+#import "Level1ViewController.h"
 
-@interface PlatyEscapeAppDelegate : NSObject <UIApplicationDelegate, MenuPrincipalDelegate, LevelSelectorDelegate> {
+@interface PlatyEscapeAppDelegate : NSObject <UIApplicationDelegate, MenuPrincipalDelegate, LevelSelectorDelegate, Level1ViewControllerDelegate> {
     UIWindow *window;
 }
 

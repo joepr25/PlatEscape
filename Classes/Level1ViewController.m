@@ -11,7 +11,7 @@
 
 @implementation Level1ViewController
 
-@synthesize player, fondo, enemigos, score;
+@synthesize player, fondo, enemigos, score, delegate, enemyCount;
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
@@ -24,12 +24,13 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	[self startTimers];
     [super viewDidLoad];
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -38,6 +39,65 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+-(void) startTimers {
+
+	[NSTimer timerWithTimeInterval:2.0	target:self	selector:@selector(addEnemy) userInfo:nil repeats:NO];
+	//Necesitamos almacenar este timer
+	[NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(moveEnemy) userInfo:nil repeats:YES];
+	
+}
+
+-(void) moveEnemy {
+
+	//Recorre el arreglo de enemigos
+	
+		//aumenta la direccion de cada enemigo
+}
+
+-(int) quadrant {
+	
+/*     Regresa en que cuadrante se encuentra actualmente el usuario
+ *     ____________
+ *    |     |     |
+ *    |  1  |   2 |
+ *    |_____|_____|
+ *    |     |     |
+ *    |  3  |   4 |
+ *    |_____|_____|
+ */
+
+	if (player.center.y < 240)
+	{
+		if(player.center.x < 160)
+			return 1;
+		else 
+			return 2;
+	}
+	else {
+		if(player.center.x < 160)
+			return 3;
+		else 
+			return 4;
+	}
+
+	
+}
+
+-(void) addEnemy {
+
+	
+	//Checa en que cuadrante esta el usuario
+	int quad = [self quadrant];
+	
+	//Crea al enemigo inicializandolo con una velocidad
+	
+	//Introduce al enemigo en el cuadrante
+	
+	//incrementa la cuenta de enemigos y se genera otro timer
+	
+}
+
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

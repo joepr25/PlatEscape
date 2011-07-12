@@ -69,8 +69,8 @@
 -(void) gotoGame:(MenuPrincipal *)requester {
 
 	[requester.view removeFromSuperview];
-	requester = nil;
 	[requester release];
+	requester = nil;
 	LevelSelector *lvc = [[LevelSelector alloc] init];
 	lvc.delegate = self;
 	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
@@ -81,9 +81,20 @@
 -(void) goToHome:(LevelSelector *)requester {
 
 	[requester.view removeFromSuperview];
-	requester = nil;
 	[requester release];
+	requester = nil;
 	MenuPrincipal *lvc = [[MenuPrincipal alloc] init];
+	lvc.delegate = self;
+	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
+	[self.window addSubview:lvc.view];
+}
+
+-(void) goToLevel1:(LevelSelector *)requester {
+
+	[requester.view removeFromSuperview];
+	[requester release];
+	requester = nil;
+	Level1ViewController *lvc = [[Level1ViewController alloc] init];
 	lvc.delegate = self;
 	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
 	[self.window addSubview:lvc.view];
