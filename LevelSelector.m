@@ -52,7 +52,6 @@
 	 * Ahora vamos a crear la animación del fondo
 	 */
 	
-	printf("View did Load\n");
 	
 	NSMutableString *name = [[NSMutableString alloc] init];
 	UIImage *imagen;
@@ -103,13 +102,16 @@
 
 -(void) home {
 	
-	printf("jajaja\n");	
 	[self.delegate goToHome:self];
 }
 
 -(void) releaseOutlets {
 
 	self.fondo = nil;
+    self.level1 = nil;
+    self.level2 = nil;
+    self.back = nil;
+    
 }
 
 - (void)didReceiveMemoryWarning {

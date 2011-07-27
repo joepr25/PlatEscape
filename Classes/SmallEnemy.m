@@ -14,24 +14,37 @@
 @synthesize direccion;
 
 
-- (id)initWithFrame:(CGRect)frame {
-    
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code.
-    }
-    return self;
-}
 
--(id)initEnemyStyle:(int)style andFrame:(CGRect)frame {
+-(id) initWithImage:(UIImage *)image inQuadrant:(int)quadrant{
+	
+	srand(time(NULL));
 
-	self = [super initWithFrame:frame];
+	self = [super initWithImage:image];
 	if (self) {
-		//self.image = [UIImage imageNamed:];
+		
+		direccion.x = (rand()%3)+4.0;
+		direccion.y = (rand()%3)+4.0;
+        
+        switch (quadrant) {
+            case 4:
+                
+                break;
+            case 3:
+                direccion.x = -direccion.x;
+                break;
+            case 2:
+                direccion.y = -direccion.y;
+                break;
+            case 1:
+                direccion.x = -direccion.x;
+                direccion.y = -direccion.y;
+                break;
+
+        }
+
+		
 	}
-	
 	return self;
-	
 }
 
 /*

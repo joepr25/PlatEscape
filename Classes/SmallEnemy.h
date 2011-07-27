@@ -17,6 +17,6 @@
 
 @property CGPoint direccion;
 
--(id) initEnemyStyle:(int)style andFrame:(CGRect)frame;
+-(id) initWithImage:(UIImage *)image inQuadrant:(int)quadrant;
 
 @end
