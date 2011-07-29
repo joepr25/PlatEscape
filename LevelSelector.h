@@ -26,6 +26,7 @@
 	IBOutlet UIImageView *level1;
 	IBOutlet UIImageView *level2;
 	IBOutlet UIImageView *back;
+    IBOutlet UILabel *tiltness;
 	id <LevelSelectorDelegate> delegate;
 
 }
@@ -34,10 +35,12 @@
 @property (retain) IBOutlet UIImageView *level2;
 @property (retain) IBOutlet UIImageView *fondo;
 @property (retain) IBOutlet UIImageView *back;
+@property (nonatomic, retain) IBOutlet UILabel *tiltness;
 @property (retain) id <LevelSelectorDelegate> delegate;
 
 -(void) level1Pressed;
 -(void) level2Pressed;
+-(void) changeTilt;
 -(void) home;
 
 @end

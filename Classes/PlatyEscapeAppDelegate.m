@@ -89,6 +89,28 @@
 	[self.window addSubview:lvc.view];
 }
 
+-(void) returnToLevelSelect:(Level1ViewController *)requester {
+    
+	[requester.view removeFromSuperview];
+	[requester release];
+	requester = nil;
+	LevelSelector *lvc = [[LevelSelector alloc] init];
+	lvc.delegate = self;
+	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
+	[self.window addSubview:lvc.view];
+}
+
+-(void) returnToMainM:(Level1ViewController *)requester {
+    
+    [requester.view removeFromSuperview];
+	[requester release];
+	requester = nil;
+	MenuPrincipal *lvc = [[MenuPrincipal alloc] init];
+	lvc.delegate = self;
+	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
+	[self.window addSubview:lvc.view];
+}
+
 -(void) goToLevel1:(LevelSelector *)requester {
 
 	[requester.view removeFromSuperview];
@@ -100,6 +122,16 @@
 	[self.window addSubview:lvc.view];
 }
 
+-(void) fromShopToHome:(ShopViewController *)requester {
+    
+    [requester.view removeFromSuperview];
+	[requester release];
+	requester = nil;
+	MenuPrincipal *lvc = [[MenuPrincipal alloc] init];
+	lvc.delegate = self;
+	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
+	[self.window addSubview:lvc.view];
+}
 
 #pragma mark -
 #pragma mark Memory management
