@@ -78,6 +78,18 @@
 	
 }
 
+-(void) gotoShop:(MenuPrincipal *)requester {
+   
+    [requester.view removeFromSuperview];
+	[requester release];
+	requester = nil;
+	ShopViewController *lvc = [[ShopViewController alloc] init];
+	lvc.delegate = self;
+	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
+	[self.window addSubview:lvc.view];
+    
+}
+
 -(void) goToHome:(LevelSelector *)requester {
 
 	[requester.view removeFromSuperview];

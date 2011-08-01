@@ -304,8 +304,8 @@
     
     if(tilt)
     {
-        double x = player.center.x + (acceleration.x * 50);
-        double y = player.center.y - ((acceleration.y + 0.5) * 50);
+        double x = player.center.x + (acceleration.x * 70);
+        double y = player.center.y - ((acceleration.y + 0.5) * 70);
     
         if(x<0.0)
             x=0.0;

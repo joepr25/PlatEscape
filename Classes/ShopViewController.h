@@ -21,6 +21,15 @@
     id <ShopViewControllerDelegate> delegate;
 }
 
-@property (nonatomic) id <ShopViewControllerDelegate> delegate;
+@property (retain) id <ShopViewControllerDelegate> delegate;
+@property (nonatomic, retain) IBOutlet UIImageView *backButton;
+@property (nonatomic, retain) IBOutlet UILabel *harryButton;
+@property (nonatomic, retain) IBOutlet UILabel *smurfButton;
+@property (nonatomic, retain) IBOutlet UILabel *noCostumeButton;
+
+
+-(void) harryPressed;
+-(void) smurfPressed;
+-(void) noCostumePressed;
 
 @end

@@ -21,11 +21,13 @@
 	/*
 	 * Primero vamos a inicializar la animación del fondo
 	 */
+    /*
 	
 	NSMutableString *str = [[NSMutableString alloc] init];
 	UIImage *imagen;
 	NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:50];
 	int i;
+    
 	for (i=1; i<49; i++) {
 		[str setString:@"HomeScreen0"];
 		if(i<10)
@@ -46,6 +48,7 @@
 	
 	[arr release];
 	[str release];
+     */
 	
 	/*
 	 * Terminamos la animación

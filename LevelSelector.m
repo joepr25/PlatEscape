@@ -57,7 +57,7 @@
 	 * Ahora vamos a crear la animación del fondo
 	 */
 	
-	
+	/*
 	NSMutableString *name = [[NSMutableString alloc] init];
 	UIImage *imagen;
 	NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:50];
@@ -77,16 +77,18 @@
 		
 	}
 	
+     */
     BOOL x = [[NSUserDefaults standardUserDefaults] boolForKey:@"tilt"];
     if (x) {
         tiltness.text = [NSString stringWithFormat:@"Tilt ON"];
     }
-	self.fondo.animationImages = arr;
-	self.fondo.animationDuration = 4.0;
-	[arr release];
-	[name release];
+	
+    //self.fondo.animationImages = arr;
+	//self.fondo.animationDuration = 4.0;
+	//[arr release];
+	//[name release];
     [super viewDidLoad];
-	[self.fondo startAnimating];
+	//[self.fondo startAnimating];
 }
 
 
