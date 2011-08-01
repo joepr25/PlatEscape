@@ -90,7 +90,7 @@
 
 -(void) noCostumePressed {
     
-    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"Plat_Estatico.png"] forKey:@"playerImage"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"PlatSoul.png"] forKey:@"playerImage"];
     
 }
 
