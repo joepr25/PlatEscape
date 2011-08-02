@@ -19,17 +19,24 @@
 @interface ShopViewController : UIViewController {
     
     id <ShopViewControllerDelegate> delegate;
+    int actual;//se almacena cual fué el último que se eligió
+    int selected;//índice de traje seleccionado
+    NSArray *costumes;
+    NSArray *icons;
 }
 
 @property (retain) id <ShopViewControllerDelegate> delegate;
 @property (nonatomic, retain) IBOutlet UIImageView *backButton;
-@property (nonatomic, retain) IBOutlet UILabel *harryButton;
-@property (nonatomic, retain) IBOutlet UILabel *smurfButton;
-@property (nonatomic, retain) IBOutlet UILabel *noCostumeButton;
+@property (nonatomic, retain) IBOutlet UIImageView *nextButton;
+@property (nonatomic, retain) IBOutlet UIImageView *previousButton;
+@property (nonatomic, retain) IBOutlet UILabel *text;
+@property (nonatomic, retain) IBOutlet UIImageView *image;
+@property (nonatomic, retain) IBOutlet UIImageView *costume;
 
 
--(void) harryPressed;
--(void) smurfPressed;
--(void) noCostumePressed;
+-(void) nextButtonPressed;
+-(void) previousButtonPressed;
+-(void) selectCostume;
+
 
 @end

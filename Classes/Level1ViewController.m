@@ -62,6 +62,7 @@
     if (imagen) {
         player.image = [UIImage imageNamed:imagen];
     }
+    [player sizeToFit];
     
 	self.enemigos = [[NSMutableArray alloc] initWithCapacity:50];
     self.score = 0.00;
@@ -302,7 +303,7 @@
 
 -(void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
     
-    if(tilt)
+    if(tilt && !isInPause)
     {
         double x = player.center.x + (acceleration.x * 70);
         double y = player.center.y - ((acceleration.y + 0.5) * 70);
