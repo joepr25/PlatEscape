@@ -11,7 +11,7 @@
 
 @implementation MenuPrincipal
 
-@synthesize fondo, startGame, gameCenter, shop, instructions, delegate;
+@synthesize fondo, startGame, gameCenter, shop, instructions, delegate, settings;
 
 
 
@@ -62,6 +62,7 @@
 	gameCenter.userInteractionEnabled = YES;
 	shop.userInteractionEnabled = YES;
 	instructions.userInteractionEnabled = YES;
+    self.settings.userInteractionEnabled = YES;
 	
 	UIGestureRecognizer *startGamepressed = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startB)];
 	[startGame addGestureRecognizer:startGamepressed];
@@ -78,6 +79,10 @@
 	UIGestureRecognizer *instructionspressed = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(instructionsB)];
 	[instructions addGestureRecognizer:instructionspressed];
 	[instructionspressed release];
+    
+    UIGestureRecognizer *settingsPressed = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(settingsB)];
+	[self.settings addGestureRecognizer:settingsPressed];
+	[settingsPressed release];
 	
     [super viewDidLoad];
 }
@@ -108,6 +113,11 @@
 	
 	[self.delegate gotoInstructions:self];
 	
+}
+
+-(void) settingsB {
+    
+    [self.delegate gotoSettings:self];
 }
 
 -(void) releaseOutlets {

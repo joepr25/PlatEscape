@@ -16,6 +16,7 @@
 -(void) gotoGC:(MenuPrincipal *)requester;
 -(void) gotoShop:(MenuPrincipal *)requester;
 -(void) gotoInstructions:(MenuPrincipal *)requester;
+-(void) gotoSettings:(MenuPrincipal *)requester;
 
 @end
 
@@ -36,6 +37,7 @@
 @property (retain) IBOutlet UIImageView *startGame;
 @property (retain) IBOutlet UIImageView *gameCenter;
 @property (retain) IBOutlet UIImageView *shop;
+@property (retain) IBOutlet UIImageView *settings;
 @property (retain) IBOutlet UIImageView *instructions;
 @property (retain) id <MenuPrincipalDelegate> delegate;
 
@@ -44,5 +46,6 @@
 -(void) gameB;
 -(void) shopB;
 -(void) instructionsB;
+-(void) settingsB;
 
 @end

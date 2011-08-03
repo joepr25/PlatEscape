@@ -88,6 +88,11 @@
      * Lanzamos los timers
      */
     
+    int state = [[NSUserDefaults standardUserDefaults] integerForKey:@"state"];
+    if (state == 0) {
+        state = 2;
+        [[NSUserDefaults standardUserDefaults] setInteger:state forKey:@"state"];
+    }
     srand(time(NULL));
     int first = (rand()%10 + 50);
     int second = (rand()%100);
@@ -97,7 +102,18 @@
     
 	self.agregaEnemigos = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(addEnemy) userInfo:nil repeats:NO];
     time1 = 2.0;
-	self.mueveEnemigos = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(moveEnemy) userInfo:nil repeats:YES];
+    switch (state) {
+        case 1:
+            self.mueveEnemigos = [NSTimer scheduledTimerWithTimeInterval:0.075 target:self selector:@selector(moveEnemy) userInfo:nil repeats:YES];
+            break;
+        case 2:
+            self.mueveEnemigos = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(moveEnemy) userInfo:nil repeats:YES];
+            break;
+        case 3:
+            self.mueveEnemigos = [NSTimer scheduledTimerWithTimeInterval:0.025 target:self selector:@selector(moveEnemy) userInfo:nil repeats:YES];
+            break;
+    }
+    
     self.tactualizaScore = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(actualizaScore) userInfo:nil repeats:YES];
     self.tchecaColisiones = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checaColisiones) userInfo:nil repeats:YES];
     self.agregaItems = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(addKeyItem) userInfo:nil repeats:NO];
@@ -132,7 +148,7 @@
                                                 message:nil 
                                                delegate:self 
                                       cancelButtonTitle:nil 
-                                      otherButtonTitles:@"Resume Game", @"Enable/Disable Tilt" , @"Restart Game", @"Return to Level Select", @"Return to Main Menu", nil];
+                                      otherButtonTitles:@"Resume Game", @"Restart Game", @"Return to Level Select", @"Return to Main Menu", nil];
     [pauseMode show];
     
 }
@@ -487,10 +503,23 @@
     
     //Alert que se presenta cuando le pones pausa
     if (alertView == pauseMode) {
+        int state = [[NSUserDefaults standardUserDefaults] integerForKey:@"state"];
+
         switch (buttonIndex) {
             case 0:
-                self.mueveEnemigos = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(moveEnemy) userInfo:nil repeats:YES];
-                self.tactualizaScore = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(actualizaScore) userInfo:nil repeats:YES];
+                
+                
+                switch (state) {
+                    case 1:
+                        self.mueveEnemigos = [NSTimer scheduledTimerWithTimeInterval:0.075 target:self selector:@selector(moveEnemy) userInfo:nil repeats:YES];
+                        break;
+                    case 2:
+                        self.mueveEnemigos = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(moveEnemy) userInfo:nil repeats:YES];
+                        break;
+                    case 3:
+                        self.mueveEnemigos = [NSTimer scheduledTimerWithTimeInterval:0.025 target:self selector:@selector(moveEnemy) userInfo:nil repeats:YES];
+                        break;
+                }                self.tactualizaScore = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(actualizaScore) userInfo:nil repeats:YES];
                 self.tchecaColisiones = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(checaColisiones) userInfo:nil repeats:YES];
                 if(time1 != 0.00)
                     self.agregaEnemigos = [NSTimer scheduledTimerWithTimeInterval:time1 target:self selector:@selector(addEnemy) userInfo:nil repeats:NO];
@@ -503,10 +532,8 @@
                 
                 break;
                 
+
             case 1:
-                
-                break;
-            case 2:
                 
                 //Se quitan todos los enemigos existentes de la pantalla
                 
@@ -524,7 +551,7 @@
                 
                 break;
                 
-            case 3:
+            case 2:
                 
                 //Se quitan todos los enemigos existentes de la pantalla
 
@@ -542,7 +569,7 @@
 
                 break;
                 
-            case 4:
+            case 3:
                 //Se quitan todos los enemigos existentes de la pantalla
                 
                 if (itemIsOut) [item removeFromSuperview];

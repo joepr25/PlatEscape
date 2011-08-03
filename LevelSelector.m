@@ -11,7 +11,7 @@
 
 @implementation LevelSelector
 
-@synthesize fondo, delegate, level1, level2, back, tiltness;
+@synthesize fondo, delegate, level1, level2, back;
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
@@ -34,7 +34,6 @@
 	level1.userInteractionEnabled = YES;
 	level2.userInteractionEnabled = YES;
 	back.userInteractionEnabled = YES;
-    tiltness.userInteractionEnabled = YES;
 	
 	UIGestureRecognizer *l1gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(level1Pressed)];
 	[level1 addGestureRecognizer:l1gr];
@@ -48,9 +47,6 @@
 	[back addGestureRecognizer:bgr];
 	[bgr release];
     
-    UIGestureRecognizer *tilt = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeTilt)];
-    [tiltness addGestureRecognizer:tilt];
-    [tilt release];
 	
 	
 	/*
@@ -78,10 +74,7 @@
 	}
 	
      */
-    BOOL x = [[NSUserDefaults standardUserDefaults] boolForKey:@"tilt"];
-    if (x) {
-        tiltness.text = [NSString stringWithFormat:@"Tilt ON"];
-    }
+
 	
     //self.fondo.animationImages = arr;
 	//self.fondo.animationDuration = 4.0;
@@ -100,23 +93,7 @@
 }
 */
 
--(void) changeTilt {
-   
-    BOOL x = [[NSUserDefaults standardUserDefaults] boolForKey:@"tilt"];
-    
-    if(x)
-    {
-        tiltness.text = [NSString stringWithFormat:@"Tilt OFF"];
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"tilt"];
-    }
-    else
-    {
-        tiltness.text = [NSString stringWithFormat:@"Tilt ON"];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"tilt"]; 
-    }
-    
-    
-}
+
 
 -(void) level1Pressed {
 	
@@ -142,7 +119,6 @@
     self.level1 = nil;
     self.level2 = nil;
     self.back = nil;
-    self.tiltness = nil;
     
 }
 

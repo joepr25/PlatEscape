@@ -10,7 +10,7 @@
 
 @implementation ShopViewController
 
-@synthesize delegate, backButton, nextButton, previousButton, image, costume, text;
+@synthesize delegate, backButton, nextButton, previousButton, image, costume, text, on;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -124,7 +124,11 @@
         self.image.image = [UIImage imageNamed:[icons objectAtIndex:actual]];
         [self.image sizeToFit];
         self.image.center = CGPointMake(160, 366);
-
+        
+        if (actual == selected)
+            self.on.hidden =  NO;
+        else
+            self.on.hidden = YES;
     }
 }
 
@@ -143,6 +147,11 @@
         self.image.image = [UIImage imageNamed:[icons objectAtIndex:actual]];
         [self.image sizeToFit];
         self.image.center = CGPointMake(160, 366);
+        
+        if (actual == selected)
+            self.on.hidden =  NO;
+        else
+            self.on.hidden = YES;
 
     }
     
@@ -183,6 +192,8 @@
             
     }
     
+    self.on.hidden = NO;
+    
 }
 
 -(void) releaseOutlets {
@@ -197,6 +208,7 @@
     costumes = nil;
     [icons release];
     icons = nil;
+    self.on = nil;
     
 
 }

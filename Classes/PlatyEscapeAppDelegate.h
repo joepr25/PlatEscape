@@ -11,8 +11,10 @@
 #import "LevelSelector.h"
 #import "Level1ViewController.h"
 #import "ShopViewController.h"
+#import "Instructions.h"
+#import "Settings.h"
 
-@interface PlatyEscapeAppDelegate : NSObject <UIApplicationDelegate, MenuPrincipalDelegate, LevelSelectorDelegate, Level1ViewControllerDelegate, ShopViewControllerDelegate> {
+@interface PlatyEscapeAppDelegate : NSObject <UIApplicationDelegate, MenuPrincipalDelegate, LevelSelectorDelegate, Level1ViewControllerDelegate, ShopViewControllerDelegate, InstructionsDelegate, SettingsDelegate> {
     UIWindow *window;
 }
 

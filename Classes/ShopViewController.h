@@ -29,6 +29,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView *backButton;
 @property (nonatomic, retain) IBOutlet UIImageView *nextButton;
 @property (nonatomic, retain) IBOutlet UIImageView *previousButton;
+@property (nonatomic, retain) IBOutlet UIImageView *on;
 @property (nonatomic, retain) IBOutlet UILabel *text;
 @property (nonatomic, retain) IBOutlet UIImageView *image;
 @property (nonatomic, retain) IBOutlet UIImageView *costume;

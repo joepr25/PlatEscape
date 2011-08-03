@@ -78,6 +78,18 @@
 	
 }
 
+-(void) gotoSettings:(MenuPrincipal *)requester {
+    
+    [requester.view removeFromSuperview];
+	[requester release];
+	requester = nil;
+	Settings *lvc = [[Settings alloc] init];
+	lvc.delegate = self;
+	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
+	[self.window addSubview:lvc.view];
+    
+}
+
 -(void) gotoShop:(MenuPrincipal *)requester {
    
     [requester.view removeFromSuperview];
@@ -99,6 +111,21 @@
 	lvc.delegate = self;
 	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
 	[self.window addSubview:lvc.view];
+}
+
+-(void) gotoInstructions:(MenuPrincipal *)requester {
+    
+     
+    [requester.view removeFromSuperview];
+	[requester release];
+    requester = nil;
+    Instructions *lvc = [[Instructions alloc] init];
+    lvc.delegate = self;
+    lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
+    [self.window addSubview:lvc.view];
+     
+    
+
 }
 
 -(void) returnToLevelSelect:(Level1ViewController *)requester {
@@ -143,6 +170,30 @@
 	lvc.delegate = self;
 	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
 	[self.window addSubview:lvc.view];
+}
+
+-(void) fromInstructionsToHome:(Instructions *)requester {
+    
+    [requester.view removeFromSuperview];
+	[requester release];
+	requester = nil;
+	MenuPrincipal *lvc = [[MenuPrincipal alloc] init];
+	lvc.delegate = self;
+	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
+	[self.window addSubview:lvc.view];
+    
+}
+
+-(void) fromSettingsToMenu:(Settings *)requester {
+    
+    [requester.view removeFromSuperview];
+	[requester release];
+	requester = nil;
+	MenuPrincipal *lvc = [[MenuPrincipal alloc] init];
+	lvc.delegate = self;
+	lvc.view.frame = [[UIScreen mainScreen] applicationFrame];
+	[self.window addSubview:lvc.view];
+    
 }
 
 #pragma mark -
